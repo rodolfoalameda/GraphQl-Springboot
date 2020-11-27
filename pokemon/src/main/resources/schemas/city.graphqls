@@ -1,0 +1,25 @@
+type City{
+    id:ID
+    name:String
+    coastline:Boolean
+    gym:Gym
+    league:League
+}
+
+input CityInput{
+    id:ID
+    name:String
+    coastline:Boolean
+    gymId:ID
+    leagueId:ID
+}
+
+extend type Query {
+    cities:[City]
+    city(id:ID):City
+}
+
+extend type Mutation {
+    saveCity(city:CityInput):City
+    deleteCity(id:ID):String
+}

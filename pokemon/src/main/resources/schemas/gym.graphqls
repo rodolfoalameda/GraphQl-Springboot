@@ -1,0 +1,23 @@
+type Gym{
+    id:ID
+    description:String
+    trainer:Trainer
+    league:League
+}
+
+input GymInput{
+    id:ID
+    description:String
+    trainerId:ID
+    leagueId:ID
+}
+
+extend type Query {
+    gyms:[Gym]
+    gym(id:ID):Gym
+}
+
+extend type Mutation {
+    saveGym(gym:GymInput):Gym
+    deleteGym(id:ID):String
+}

@@ -1,0 +1,21 @@
+type Trainer{
+    id:ID
+    name:String
+    insignias:Int
+    pokemons:[Pokemon]
+}
+input TrainerInput{
+    id:ID
+    name:String
+    insignias:Int
+}
+
+extend type Query {
+    trainers:[Trainer]
+    trainer(id:ID): Trainer
+}
+
+extend type Mutation {
+    saveTrainer(trainer:TrainerInput):Trainer
+    deleteTrainer(id:ID):String
+}

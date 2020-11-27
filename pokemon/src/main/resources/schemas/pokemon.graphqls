@@ -1,0 +1,27 @@
+type Pokemon{
+    id:ID
+    name:String
+    level: Int
+    type: String
+    weakness: String
+    trainer:Trainer
+}
+
+input PokemonInput{
+    id:ID
+    name:String
+    level: Int
+    type: String
+    weakness: String
+    trainerId:ID
+}
+
+extend type Query {
+    pokemons:[Pokemon]
+    pokemon(id:ID):Pokemon
+}
+
+extend type Mutation {
+    savePokemon(pokemon:PokemonInput):Pokemon
+    deletePokemon(id:ID): String
+}

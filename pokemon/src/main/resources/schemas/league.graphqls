@@ -1,0 +1,19 @@
+type League{
+    id:ID
+    name:String
+}
+
+input LeagueInput{
+    id:ID
+    name:String
+}
+
+extend type Query {
+    league(id:ID):League
+    leagues:[League]
+}
+
+extend type Mutation {
+    saveLeague(league:LeagueInput):League
+    deleteLeague(id:ID):String
+}
