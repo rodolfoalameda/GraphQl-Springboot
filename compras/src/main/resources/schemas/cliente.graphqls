@@ -1,0 +1,22 @@
+type Cliente{
+    id:ID
+    nome:String
+    email:String
+    compras:[Compra]
+}
+
+extend type Query{
+    findById(id:ID):Cliente
+    findAll:[Cliente]
+}
+
+input ClienteInput{
+    id:ID
+    nome:String
+    email:String
+}
+
+extend type Mutation {
+    save(cliente:ClienteInput): Cliente
+    deleteById(id:Int): String
+}

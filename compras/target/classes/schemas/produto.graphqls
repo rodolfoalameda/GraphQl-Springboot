@@ -1,0 +1,21 @@
+type Produto{
+    id:ID
+    nome:String
+    valor:Float
+}
+
+input ProdutoInput{
+    id:ID
+    nome:String
+    valor:Float
+}
+
+extend type Query {
+    pFindAll:[Produto]
+    pFindById(id:ID): Produto
+}
+
+extend type Mutation {
+    pSave(produto:ProdutoInput): Produto
+    pDeleteById(id:ID): String
+}
